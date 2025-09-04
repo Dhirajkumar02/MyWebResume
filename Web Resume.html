@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dhiraj Kumar</title>
+    <meta name="description" content="Web resume of Dhiraj Kumar — Java Full Stack Developer" />
+    <style>
+        :root {
+            --bg: #0b0c0f;
+            --card: #12141a;
+            --text: #e6e7ea;
+            --muted: #a7adbb;
+            --accent: #4f8cff;
+            --chip: #1b2030;
+            --border: #222734;
+            --link: #79a6ff;
+            --ok: #27ae60;
+            --warn: #e67e22;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f7f8fb;
+                --card: #ffffff;
+                --text: #1d2433;
+                --muted: #516079;
+                --accent: #2b6bff;
+                --chip: #eff3ff;
+                --border: #e9edf5;
+                --link: #1f5eff;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font: 15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+                Cantarell, Noto Sans, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 28px 18px 72px;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 18px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .title h1 {
+            font-size: 34px;
+            margin: 0 0 2px;
+            letter-spacing: 0.3px;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button,
+        .btn {
+            appearance: none;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            padding: 10px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        button:hover,
+        .btn:hover {
+            border-color: var(--accent);
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+        }
+
+        .card .item h3 a {
+            color: var(--text);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .card .item h3 a:hover {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+
+        .grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .grid.cols-2 {
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+
+        @media (max-width: 860px) {
+            .grid.cols-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section {
+            margin-top: 18px;
+        }
+
+        .section h2 {
+            font-size: 18px;
+            margin: 0 0 12px;
+            letter-spacing: 0.4px;
+        }
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact a {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 12px;
+            background: var(--chip);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            border-color: var(--accent);
+            color: var(--link);
+        }
+
+        .item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 8px;
+        }
+
+        .item h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .item .meta {
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .item p {
+            margin: 6px 0 0;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .chip {
+            padding: 6px 10px;
+            background: var(--chip);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .list {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .list li {
+            margin: 6px 0;
+        }
+
+        .list li a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .list li a:hover {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .cols {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        @media (max-width: 680px) {
+            .cols {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            margin-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--muted);
+        }
+
+        .print-note {
+            font-size: 12px;
+        }
+
+        /* Print */
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .card {
+                box-shadow: none;
+            }
+
+            .actions,
+            .print-note {
+                display: none;
+            }
+
+            a {
+                color: inherit;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="title">
+                <h1>DHIRAJ KUMAR</h1>
+                <div class="subtitle">Java Full Stack Developer</div>
+            </div>
+            <div class="actions">
+                <a class="btn" href="mailto:dhirajkumarsaah@gmail.com">Email</a>
+                <a class="btn" href="tel:+919905451458">Call</a>
+                <button onclick="window.print()" title="Save/Print as PDF">
+                    Print / Save PDF
+                </button>
+                <button id="themeBtn" title="Toggle theme">Toggle Theme</button>
+            </div>
+        </header>
+
+        <div class="section card">
+            <div class="contact">
+                <a href="mailto:dhirajkumarsaah@gmail.com">dhirajkumarsaah@gmail.com</a>
+                <a href="https://www.linkedin.com/in/dhirajkumar02/" target="_blank"
+                    rel="noreferrer noopener">LinkedIn</a>
+                <a href="https://github.com/Dhirajkumar02" target="_blank" rel="noreferrer noopener">GitHub</a>
+                <a href="https://dhirajkumar02.github.io/My-Portfolio/" target="_blank"
+                    rel="noreferrer noopener">Portfolio</a>
+                <span class="chip">Bengaluru, India</span>
+            </div>
+        </div>
+
+        <div class="grid cols-2 section">
+            <section class="card">
+                <h2>Career Objective</h2>
+                <p>
+                    A pro-active individual with strong programming and creativity
+                    skills. Focused on building my career as a developer and actively
+                    seeking opportunities to join a progressive organization where I can
+                    gain valuable work experience.
+                </p>
+            </section>
+
+            <section class="card">
+                <h2>Education</h2>
+                <div class="item">
+                    <h3>
+                        Technocrats Institute of Technology, Bhopal — B.Tech (ECE) • CGPA:
+                        8.70
+                    </h3>
+                    <div class="meta">Aug 2020 – Jun 2024</div>
+                </div>
+                <div class="item">
+                    <h3>R.N. College, Hajipur — 12th • 82.80%</h3>
+                    <div class="meta">Jul 2018 – Mar 2020</div>
+                </div>
+                <div class="item">
+                    <h3>G A INTER SCHOOL, Hajipur — 10th • 72.40%</h3>
+                    <div class="meta">Mar 2017 – Jun 2018</div>
+                </div>
+            </section>
+        </div>
+
+        <section class="card section">
+            <h2>Skills</h2>
+            <div class="cols">
+                <div>
+                    <strong>Languages</strong>
+                    <div class="chips">
+                        <span class="chip">Core Java</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">JavaScript</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Web Tech</strong>
+                    <div class="chips">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">Servlet</span>
+                        <span class="chip">REST API</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Frameworks</strong>
+                    <div class="chips">
+                        <span class="chip">React</span>
+                        <span class="chip">Spring Boot</span>
+                        <span class="chip">Hibernate</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Database</strong>
+                    <div class="chips">
+                        <span class="chip">MySQL</span>
+                        <span class="chip">Oracle</span>
+                        <span class="chip">JDBC API</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Tools</strong>
+                    <div class="chips">
+                        <span class="chip">Git</span>
+                        <span class="chip">Maven</span>
+                        <span class="chip">Eclipse</span>
+                        <span class="chip">VS Code</span>
+                        <span class="chip">Tomcat</span>
+                        <span class="chip">Postman</span>
+                    </div>
+                </div>
+                <div>
+                    <strong>Others</strong>
+                    <div class="chips">
+                        <span class="chip">OOPs</span>
+                        <span class="chip">DSA</span>
+                        <span class="chip">Leadership</span>
+                        <span class="chip">Problem Solving</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card section">
+            <h2>Training / Internship</h2>
+            <div class="item">
+                <h3>
+                    JSpiders Training and Development Center, Noida — Java Full Stack
+                    Developer
+                </h3>
+                <div class="meta">Training Program</div>
+            </div>
+            <ul class="list">
+                <li>Training on front-end and back-end development.</li>
+                <li>
+                    Hands-on API integration, web app development, and database
+                    management.
+                </li>
+                <li>Applied knowledge in real-world projects.</li>
+            </ul>
+        </section>
+
+        <section class="card section">
+            <h2>Projects</h2>
+
+            <div class="item">
+                <h3>
+                    <a href="https://github.com/Dhirajkumar02/Hospital-Management-System-Using-Servlet" target="_blank"
+                        rel="noreferrer noopener">Hospital Management System</a>
+                </h3>
+                <div class="meta">
+                    Java, Servlet, JDBC, MySQL, HTML, CSS, JavaScript, Bootstrap, JSP,
+                    Apache Tomcat, Eclipse IDE
+                </div>
+            </div>
+            <ul class="list">
+                <li>
+                    Web-based system to manage doctors, patients, and appointments
+                    efficiently.
+                </li>
+                <li>
+                    Implemented user authentication for secure admin and user logins.
+                </li>
+                <li>
+                    Robust backend using Java Servlets and JDBC for data processing and
+                    DB interaction.
+                </li>
+                <li>
+                    MySQL for storing patient records, doctor details, and appointment
+                    schedules.
+                </li>
+                <li>Deployed on Apache Tomcat with reliable JDBC connectivity.</li>
+            </ul>
+
+            <div class="item" style="margin-top: 14px">
+                <h3>
+                    <a href="https://github.com/Dhirajkumar02/Student-Management-System-Using-Servlet" target="_blank"
+                        rel="noreferrer noopener">Student Management System</a>
+                </h3>
+                <div class="meta">
+                    Java (Servlet, JDBC), JSP, HTML, CSS, JavaScript, Bootstrap, MySQL
+                </div>
+            </div>
+            <ul class="list">
+                <li>
+                    Manage student records with CRUD operations (Create, Read, Update,
+                    Delete).
+                </li>
+                <li>
+                    User authentication (login/logout) with session management to secure
+                    access.
+                </li>
+                <li>Integrated MySQL with JDBC for persistence and retrieval.</li>
+            </ul>
+
+            <div class="item" style="margin-top: 14px">
+                <h3>
+                    <a href="https://github.com/Dhirajkumar02/Banking-Application-Using-Spring-Boot" target="_blank"
+                        rel="noreferrer noopener">Banking Application — Spring Boot</a>
+                </h3>
+                <div class="meta">
+                    Java, Spring Boot, Spring Data JPA, MySQL, REST API
+                </div>
+            </div>
+            <ul class="list">
+                <li>
+                    Core banking features: account creation, deposit, withdrawal, and
+                    deletion via REST APIs.
+                </li>
+                <li>
+                    Integrated Hibernate & JPA for ORM with MySQL for robust, persistent
+                    storage.
+                </li>
+            </ul>
+        </section>
+
+        <section class="card section">
+            <h2>Certificates</h2>
+            <div class="cols">
+                <ul class="list">
+                    <li><a href="https://drive.google.com/file/d/1YUDNdYakD2tHl8inHjkUwDDl4TOiAqS7/view?usp=drive_link"
+                            target="_blank">Basic Java</a> — HackerRank (Dec 2023)</li>
+                    <li><a href="https://drive.google.com/file/d/17PzcpAYaREebrphL2jAX1RgJl6JwP3Wf/view?usp=drive_link"
+                            target="_blank">Problem Solving</a> — HackerRank (Jan 2023)</li>
+                    <li><a href="https://drive.google.com/file/d/1rJiSs_JRmfD5_SNfZqcEmIPbKEMslPnr/view?usp=drive_link">SQL
+                            Intermediate</a>
+                        — HackerRank (Feb 2023)</li>
+                </ul>
+                <ul class="list">
+                    <li><a href="https://drive.google.com/file/d/1N3eMFLJ4_hgHCsjyi4jcH22IwEZRF6an/view?usp=drive_link"
+                            target="_blank">Learning Spring with Spring Boot</a> — LinkedIn (Oct 2024)</li>
+                    <li><a href="https://drive.google.com/file/d/1_EV7e82jKMADawwh-M6tGXWoCN-LWVoJ/view?usp=drive_link"
+                            target="_blank">Learning JDBC</a> — LinkedIn (Oct 2024)</li>
+                    <li><a href="https://drive.google.com/file/d/1mRmkP72bvOWe7_TqhxHBJOWuZPwk2H5o/view?usp=drive_link"
+                            target="_blank">Basic JavaScript</a> — HackerRank (Jan 2023)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="card section">
+            <h2>Field of Interest / Hobbies</h2>
+            <div class="chips">
+                <span class="chip">Learning new technologies</span>
+                <span class="chip">Playing Cricket</span>
+                <span class="chip">Cooking</span>
+            </div>
+        </section>
+
+        <footer>
+            <div class="print-note">
+                Tip: Use the “Print / Save PDF” button to export this page as a PDF.
+            </div>
+            <div>Updated: <span id="today"></span></div>
+        </footer>
+    </div>
+
+    <script>
+        // Update date
+        const d = new Date();
+        const fmt = new Intl.DateTimeFormat(undefined, {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+        });
+        document.getElementById("today").textContent = fmt.format(d);
+
+        // Theme toggle: swap root palette quickly
+        const btn = document.getElementById("themeBtn");
+        let toggled = false;
+        btn.addEventListener("click", () => {
+            document.documentElement.style.filter = toggled
+                ? ""
+                : "invert(1) hue-rotate(180deg)";
+            toggled = !toggled;
+        });
+    </script>
+</body>
+
+</html>
