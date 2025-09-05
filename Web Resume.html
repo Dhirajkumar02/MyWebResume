@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dhiraj Kumar</title>
+    <link rel="icon" type="image/png" href="images/profile-photo.jpg" />
     <meta name="description" content="Web resume of Dhiraj Kumar — Java Full Stack Developer" />
     <style>
         :root {
@@ -16,8 +17,6 @@
             --chip: #1b2030;
             --border: #222734;
             --link: #79a6ff;
-            --ok: #27ae60;
-            --warn: #e67e22;
         }
 
         @media (prefers-color-scheme: light) {
@@ -99,6 +98,28 @@
             border-color: var(--accent);
         }
 
+        #themeBtn {
+            font-size: 20px;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        #themeBtn:hover {
+            border-color: var(--accent);
+            background: var(--chip);
+        }
+
+        /* Smooth rotation + fade */
+        #themeIcon {
+            display: inline-block;
+            transition: transform 0.5s ease, opacity 0.4s ease;
+        }
+
         .card {
             background: var(--card);
             border: 1px solid var(--border);
@@ -118,21 +139,68 @@
             text-decoration: none;
         }
 
+        .timeline {
+            position: relative;
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -12px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 2px solid var(--card);
+            box-shadow: 0 0 0 3px var(--chip);
+        }
+
+        .timeline-content {
+            background: var(--chip);
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: var(--card);
+            border-color: var(--accent);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-content h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .timeline-content .meta {
+            color: var(--muted);
+            font-weight: 500;
+            margin: 4px 0;
+        }
+
+        .timeline-content .date {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+        }
 
         .grid {
             display: grid;
             gap: 16px;
         }
 
-        .grid.cols-2 {
-            grid-template-columns: 1.2fr 0.8fr;
-        }
-
         @media (max-width: 860px) {
-            .grid.cols-2 {
-                grid-template-columns: 1fr;
-            }
-
             header {
                 grid-template-columns: 1fr;
             }
@@ -284,7 +352,14 @@
                 <button onclick="window.print()" title="Save/Print as PDF">
                     Print / Save PDF
                 </button>
-                <button id="themeBtn" title="Toggle theme">Toggle Theme</button>
+                <a class="btn"
+                    href="https://drive.google.com/file/d/1CB5idGZ7DEVbq4zCIT1uLhe7EjWl4MK0/view?usp=drive_link"
+                    target="_blank">
+                    Download Resume
+                </a>
+                <button id="themeBtn" title="Toggle theme">
+                    <span id="themeIcon">🌙</span>
+                </button>
             </div>
         </header>
 
@@ -300,37 +375,49 @@
             </div>
         </div>
 
-        <div class="grid cols-2 section">
-            <section class="card">
-                <h2>Career Objective</h2>
-                <p>
-                    A pro-active individual with strong programming and creativity
-                    skills. Focused on building my career as a developer and actively
-                    seeking opportunities to join a progressive organization where I can
-                    gain valuable work experience.
-                </p>
-            </section>
+        <!-- Career Objective in full row -->
+        <section class="card section">
+            <h2>Career Objective</h2>
+            <p>
+                A pro-active individual with strong programming and creativity
+                skills. Focused on building my career as a developer and actively
+                seeking opportunities to join a progressive organization where I can
+                gain valuable work experience.
+            </p>
+        </section>
 
-            <section class="card">
-                <h2>Education</h2>
-                <div class="item">
-                    <h3>
-                        Technocrats Institute of Technology, Bhopal — B.Tech (ECE) • CGPA:
-                        8.70
-                    </h3>
-                    <div class="meta">Aug 2020 – Jun 2024</div>
+        <!-- Education in full row -->
+        <section class="card section">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Technocrats Institute of Technology, Bhopal</h3>
+                        <p class="meta">B.Tech (ECE) • CGPA: 8.70</p>
+                        <span class="date">Aug 2020 – Jun 2024</span>
+                    </div>
                 </div>
-                <div class="item">
-                    <h3>R.N. College, Hajipur — 12th • 82.80%</h3>
-                    <div class="meta">Jul 2018 – Mar 2020</div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>R.N. College, Hajipur</h3>
+                        <p class="meta">12th • 82.80%</p>
+                        <span class="date">Jul 2018 – Mar 2020</span>
+                    </div>
                 </div>
-                <div class="item">
-                    <h3>G A INTER SCHOOL, Hajipur — 10th • 72.40%</h3>
-                    <div class="meta">Mar 2017 – Jun 2018</div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>G A INTER SCHOOL, Hajipur</h3>
+                        <p class="meta">10th • 72.40%</p>
+                        <span class="date">Mar 2017 – Jun 2018</span>
+                    </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
 
+        <!-- The rest stays same -->
         <section class="card section">
             <h2>Skills</h2>
             <div class="cols">
@@ -390,6 +477,7 @@
             </div>
         </section>
 
+        <!-- Training / Internship -->
         <section class="card section">
             <h2>Training / Internship</h2>
             <div class="item">
@@ -409,6 +497,7 @@
             </ul>
         </section>
 
+        <!-- Projects -->
         <section class="card section">
             <h2>Projects</h2>
 
@@ -483,6 +572,7 @@
             </ul>
         </section>
 
+        <!-- Certificates -->
         <section class="card section">
             <h2>Certificates</h2>
             <div class="cols">
@@ -517,7 +607,7 @@
 
         <footer>
             <div class="print-note">
-                Tip: Use the “Print / Save PDF” button to export this page as a PDF.
+                Made by ❤️ Dhiraj Kumar.
             </div>
             <div>Updated: <span id="today"></span></div>
         </footer>
@@ -535,12 +625,28 @@
 
         // Theme toggle: swap root palette quickly
         const btn = document.getElementById("themeBtn");
-        let toggled = false;
+        const themeIcon = document.getElementById("themeIcon");
+        let darkMode = true;
+
         btn.addEventListener("click", () => {
-            document.documentElement.style.filter = toggled
-                ? ""
-                : "invert(1) hue-rotate(180deg)";
-            toggled = !toggled;
+            // Rotate + fade out
+            themeIcon.style.transform = "rotate(180deg)";
+            themeIcon.style.opacity = "0";
+
+            setTimeout(() => {
+                // Swap icon after half animation
+                themeIcon.textContent = darkMode ? "🌞" : "🌙";
+
+                // Reset animation
+                themeIcon.style.transform = "rotate(0deg)";
+                themeIcon.style.opacity = "1";
+
+                // Toggle theme
+                document.documentElement.style.filter = darkMode
+                    ? "invert(1) hue-rotate(180deg)"
+                    : "";
+                darkMode = !darkMode;
+            }, 250); // Wait for fade before swapping
         });
     </script>
 </body>
